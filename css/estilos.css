@@ -1,0 +1,251 @@
+/*
+#EAA4E1 violeta
+#FFC8DD rosa claro
+#E11A63 fucsia
+#92c1ec celelste claro
+#FFF5B2 vainilla
+*/
+* {
+    margin: 0%;
+    padding: 0%;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  /* header */
+  header {
+    height: 100%;
+    font-family: "Shadows Into Light", cursive;
+    background-color: rgb(247, 247, 250);
+    background: linear-gradient(90deg, rgb(247, 247, 250) 0%, rgb(181, 86, 169) 37%, rgb(255, 47, 198) 93%);
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+  }
+  
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+  }
+  
+  
+  .carousel-item {
+      margin-top: 60px;
+      height: 550px;
+      max-width: 450px;
+      margin-left: 35%;
+  }
+  
+  
+    
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #E11A63;
+    font-size: 5rem;
+    margin-top: 80px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: black;
+    font-size: 3rem;
+    margin-top: 50px;
+    padding: 80px;
+  }
+  
+  h3 {
+    margin-top: 50px;
+    color: black;
+    background-color: #92c1ec;
+    font-size: 3rem;
+  }
+  
+  .prod {
+    text-align: center;
+    margin-top: 60px;
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3rem;
+    flex-direction: row; /* Cambia flex-direction a row */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+  }
+  
+  .img {
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+  }
+  
+  .beneficios{
+    margin-top: 30px;
+  }
+  
+  .img-res {
+    padding-block-end: 40px;
+  }
+  
+  .tienda {
+    text-align: center;
+    font-size: 4rem;
+    background-color: #FFF5B2;
+    align-content: center;
+  }
+  
+  .articulos {
+    margin-top: 10px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ar{
+      font-size: 2rem;
+      width: 250px;
+      height: 450px;
+      margin: 20px;
+      border: 1.5px solid black;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+  }
+    
+  .productos {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .cont-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input {
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 20%;
+    background-color: #FFC8DD;
+  }
+  
+  input:active {
+    border: 2px solid blueviolet;
+  }
+  
+  
+.footer {
+    height: 100px;
+    margin-top: 100px;
+    font-family:'Shadows Into Light', cursive;
+    background-color: rgb(247, 247, 250);
+    background: linear-gradient(90deg, rgb(247, 247, 250) 0%, rgb(181, 86, 169) 37%, rgb(255, 47, 198) 93%);
+    position: sticky;
+    top: 0px;
+  }
+  
+  .container {
+    height: 100px;
+    display: grid;
+    margin-left: 20px;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-areas: "f1 f2 f3 f4" "f5 f5 f5 f5" "f5 f5 f5 f5";
+  }
+  
+  .if {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .ifd {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .tf2 {
+    font-size: 1rem;
+  }
+  
+  .tf3 {
+    font-size: 1.8rem;
+  }
+  
+  .f1 {
+    grid-area: f1;
+  }
+  
+  .f2 {
+    grid-area: f2;
+  }
+  
+  .f3 {
+    grid-area: f3;
+  }
+  
+  .f4 {
+    grid-area: f4;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .f5 {
+    grid-area: f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Estilos para el contenedor del carrito y los elementos del carrito */
+#carrito {
+  border: 1px solid #0e0d0d;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* Estilos para el botón de quitar */
+.quitar-item {
+  background-color: #e44ba4;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quitar-item:hover {
+  background-color: #892fd3;
+}
