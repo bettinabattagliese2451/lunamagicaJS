@@ -45,7 +45,7 @@ let carrito = [];
   // Función para quitar un producto del carrito
 function quitarDelCarrito(index) {
     Swal.fire({
-        title: '¿Está de acuerdo con quitar el artículo del carrito?',
+        title: '¿Está de acuerdo con quitar el siguiente artículo del carrito?',
         showCancelButton: true,
         confirmButtonText: 'Sí',
         cancelButtonText: 'No'
