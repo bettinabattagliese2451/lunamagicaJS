@@ -1,21 +1,18 @@
-
-
-
-let productos = [];
-let carrito = [];
-
 document.addEventListener('DOMContentLoaded', function () {
+    let productos = [];
+    let carrito = [];
+
+    // Obtener productos desde el archivo JSON
     fetch("./js/productos.json")
         .then(response => response.json())
         .then(data => {
             productos = data;
-            // No agregues un producto al carrito aquí
         });
 
     // Función para actualizar la visualización del carrito
     function actualizarCarrito() {
         const carritoContainer = document.getElementById('carrito');
-        carritoContainer.innerHTML = ''; // Limpiar el carrito antes de actualizarlo
+        carritoContainer.innerHTML = '';
 
         carrito.forEach(function (item, index) {
             const div = document.createElement('div');
@@ -27,12 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
             carritoContainer.appendChild(div);
         });
 
-        // Actualizar el total
         const totalCarrito = document.getElementById('total-carrito');
         const total = carrito.reduce((sum, item) => sum + item.precio, 0);
         totalCarrito.textContent = `Total: $${total}`;
 
-        // Guardar el carrito en localStorage
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
 
@@ -57,11 +52,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Seleccionar los botones "Comprar" por su ID y agregar eventos de clic a cada uno
+    // Seleccionar los botones "Comprar" por su clase y agregar eventos de clic a cada uno
     const botonesComprar = document.querySelectorAll('.cont-button input[type="button"]');
     botonesComprar.forEach(function (boton, index) {
         boton.addEventListener('click', function () {
-            // Verificar que el índice esté dentro del rango de productos
             if (index < productos.length) {
                 const producto = productos[index];
                 agregarAlCarrito(producto);
