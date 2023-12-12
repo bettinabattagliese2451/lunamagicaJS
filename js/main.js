@@ -2,16 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let productos = [];
     let carrito = [];
 
+    // Obtener productos desde el archivo JSON
+    fetch("./js/productos.json")
+        .then(response => response.json())
+        .then(data => {
+            productos = data;
 
-// Obtener productos desde el archivo JSON
-fetch("./js/productos.json")
-    .then(response => response.json())
-    .then(data => {
-        productos = data;
-    });
-
-
-
+            // Agregar el primer producto al carrito después de cargar la página
+            agregarAlCarrito(productos[0]);
+        });
 
     // Función para actualizar la visualización del carrito
     function actualizarCarrito() {
@@ -35,7 +34,6 @@ fetch("./js/productos.json")
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
 
-    
     // Función para agregar un producto al carrito
     function agregarAlCarrito(producto) {
         carrito.push(producto);
@@ -56,7 +54,6 @@ fetch("./js/productos.json")
             }
         });
     }
-
 
     // Seleccionar los botones "Comprar" por su clase y agregar eventos de clic a cada uno
     const botonesComprar = document.querySelectorAll('.cont-button input[type="button"]');
@@ -84,6 +81,3 @@ fetch("./js/productos.json")
         actualizarCarrito();
     }
 });
-
-    // Agregar el primer producto al carrito después de cargar la página
-agregarAlCarrito(productos[0]);
