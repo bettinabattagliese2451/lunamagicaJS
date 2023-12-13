@@ -8,8 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             productos = data;
 
-    // Agregar el primer producto al carrito después de cargar la página
-    agregarAlCarrito(productos[0]);
+            // Agregar eventos de clic a los botones "Comprar"
+            const botonesComprar = document.querySelectorAll('.cont-button input[type="button"]');
+            botonesComprar.forEach((boton, index) => {
+                boton.addEventListener('click', function () {
+                    agregarAlCarrito(index);
+                });
+            });
+
+            // Agregar el primer producto al carrito después de cargar la página
+            agregarAlCarrito(0);
         });
 
     // Función para actualizar la visualización del carrito
@@ -22,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             div.classList.add('carrito-item');
             div.innerHTML = `
                 <span>${item.nombre} - $${item.precio}</span>
-                <button class="quitar-item" data-index="${index}">Quitar</button>
+                <button class="quitar-item" data-id="${item.id}">Quitar</button>
             `;
             carritoContainer.appendChild(div);
         });
@@ -35,12 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Función para agregar un producto al carrito
-    function agregarAlCarrito(id) {
-        const producto = productos.find(item => item.id === id);
+    function agregarAlCarrito(index) {
+        const producto = productos[index];
         carrito.push(producto);
         actualizarCarrito();
     }
-
 
     // Función para quitar un producto del carrito
     function quitarDelCarrito(id) {
@@ -57,18 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-
-
-    // Seleccionar los botones "Comprar" por su clase y agregar eventos de clic a cada uno
-    const botonesComprar = document.querySelectorAll('.cont-button input[type="button"]');
-    botonesComprar.forEach(function (boton) {
-        boton.addEventListener('click', function () {
-            const id = parseInt(boton.getAttribute('data-id'));
-            agregarAlCarrito(id);
-        });
-    });
-
-
 
     // Seleccionar los botones "Quitar" en el carrito y agregar eventos de clic a cada uno
     document.addEventListener('click', function (event) {
