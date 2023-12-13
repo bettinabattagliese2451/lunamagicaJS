@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Función para agregar un producto al carrito
-    function agregarAlCarrito(producto) {
+    function agregarAlCarrito(id) {
+        const producto = productos.find(item => item.id === id);
         carrito.push(producto);
         actualizarCarrito();
     }
@@ -57,16 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
     // Seleccionar los botones "Comprar" por su clase y agregar eventos de clic a cada uno
     const botonesComprar = document.querySelectorAll('.cont-button input[type="button"]');
-    botonesComprar.forEach(function (boton, index) {
+    botonesComprar.forEach(function (boton) {
         boton.addEventListener('click', function () {
-            if (index < productos.length) {
-                const producto = productos[index];
-                agregarAlCarrito(producto);
-            }
+            const id = parseInt(boton.getAttribute('data-id'));
+            agregarAlCarrito(id);
         });
     });
+
+
 
     // Seleccionar los botones "Quitar" en el carrito y agregar eventos de clic a cada uno
     document.addEventListener('click', function (event) {
@@ -83,3 +85,5 @@ document.addEventListener('DOMContentLoaded', function () {
         actualizarCarrito();
     }
 });
+
+
