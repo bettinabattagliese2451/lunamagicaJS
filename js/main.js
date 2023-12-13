@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // Agregar el primer producto al carrito después de cargar la página
-            agregarAlCarrito(productos[0].id);
+            //agregarAlCarrito(productos[0].id);
         });
 
     // Función para actualizar la visualización del carrito
