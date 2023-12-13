@@ -49,11 +49,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para agregar un producto al carrito
     function agregarAlCarrito(id) {
         const producto = productos.find(item => item.id === id);
-        if (producto) {
+    
+        // Verificar si el producto ya está en el carrito
+        const productoEnCarrito = carrito.find(item => item.id === id);
+    
+        if (producto && !productoEnCarrito) {
             carrito.push(producto);
             actualizarCarrito();
         }
     }
+    
 
     // Función para quitar un producto del carrito
     function quitarDelCarrito(id) {
