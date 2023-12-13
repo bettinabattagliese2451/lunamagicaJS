@@ -10,14 +10,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Agregar eventos de clic a los botones "Comprar"
             const botonesComprar = document.querySelectorAll('.cont-button input[type="button"]');
-            botonesComprar.forEach((boton, index) => {
+            botonesComprar.forEach(boton => {
+                const id = parseInt(boton.getAttribute('data-id'));
                 boton.addEventListener('click', function () {
-                    agregarAlCarrito(index);
+                    agregarAlCarrito(id);
                 });
             });
 
             // Agregar el primer producto al carrito después de cargar la página
-            agregarAlCarrito(0);
+            agregarAlCarrito(productos[0].id);
         });
 
     // Función para actualizar la visualización del carrito
@@ -43,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Función para agregar un producto al carrito
-    function agregarAlCarrito(index) {
-        const producto = productos[index];
+    function agregarAlCarrito(id) {
+        const producto = productos.find(item => item.id === id);
         carrito.push(producto);
         actualizarCarrito();
     }
