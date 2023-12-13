@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para actualizar la visualización del carrito
     function actualizarCarrito() {
         const carritoContainer = document.getElementById('carrito');
-        if (carritoContainer) {
+        const totalCarrito = document.getElementById('total-carrito');
+
+        if (carritoContainer && totalCarrito) {
             carritoContainer.innerHTML = '';
 
             carrito.forEach(function (item, index) {
@@ -37,11 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 carritoContainer.appendChild(div);
             });
 
-            const totalCarrito = document.getElementById('total-carrito');
-            if (totalCarrito) {
-                const total = carrito.reduce((sum, item) => sum + item.precio, 0);
-                totalCarrito.textContent = `Total: $${total}`;
-            }
+            const total = carrito.reduce((sum, item) => sum + item.precio, 0);
+            totalCarrito.textContent = `Total: $${total}`;
 
             localStorage.setItem('carrito', JSON.stringify(carrito));
         }
@@ -89,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
         actualizarCarrito();
     }
 });
+
 
 
 
