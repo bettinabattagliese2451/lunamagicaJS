@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             productos = data;
 
-            // Agregar el primer producto al carrito después de cargar la página
-            agregarAlCarrito(productos[0]);
+    // Agregar el primer producto al carrito después de cargar la página
+    agregarAlCarrito(productos[0]);
         });
 
     // Función para actualizar la visualización del carrito
@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
         actualizarCarrito();
     }
 
+
     // Función para quitar un producto del carrito
-    function quitarDelCarrito(index) {
+    function quitarDelCarrito(id) {
         Swal.fire({
             title: '¿Está de acuerdo con quitar el artículo del carrito?',
             showCancelButton: true,
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cancelButtonText: 'No'
         }).then((result) => {
             if (result.isConfirmed) {
+                const index = carrito.findIndex(item => item.id === id);
                 carrito.splice(index, 1);
                 actualizarCarrito();
             }
@@ -69,8 +71,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Seleccionar los botones "Quitar" en el carrito y agregar eventos de clic a cada uno
     document.addEventListener('click', function (event) {
         if (event.target.classList.contains('quitar-item')) {
-            const index = parseInt(event.target.getAttribute('data-index'));
-            quitarDelCarrito(index);
+            const id = parseInt(event.target.getAttribute('data-id'));
+            quitarDelCarrito(id);
         }
     });
 

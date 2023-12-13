@@ -1,6 +1,6 @@
 [
-    { "nombre": "Velas de Miel medianas (x2)", "precio": 180 },
-    { "nombre": "Vela de Soja 7 Chakras", "precio": 630 },
-    { "nombre": "Vela Circo XXL con Plato de resina", "precio": 1100 },
-    { "nombre": "Dos Velas de Soja, con tapa de bambú", "precio": 790 }
+    { "id": 1, "nombre": "Velas de Miel medianas (x2)", "precio": 180 },
+    { "id": 2, "nombre": "Vela de Soja 7 Chakras", "precio": 630 },
+    { "id": 3, "nombre": "Vela Circo XXL con Plato de resina", "precio": 1100 },
+    { "id": 4, "nombre": "Dos Velas de Soja, con tapa de bambú", "precio": 790 }
 ]
