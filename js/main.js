@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     let productos = [];
     let carrito = [];
@@ -18,13 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // Agregar el primer producto al carrito después de cargar la página
-            //agregarAlCarrito(productos[0].id);
+            agregarAlCarrito(productos[0].id);
         });
 
     // Función para actualizar la visualización del carrito
     function actualizarCarrito() {
-        const carritoContainer = document.getElementById('carrito');
-        const totalCarrito = document.getElementById('total-carrito');
+        const carritoContainer = document.querySelector('#carrito');
+        const totalCarrito = document.querySelector('#total-carrito');
+
 
         if (carritoContainer && totalCarrito) {
             carritoContainer.innerHTML = '';
