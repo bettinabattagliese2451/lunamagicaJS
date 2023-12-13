@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <!--css main-->
     <link rel="stylesheet" href="./css/estilos.css">
-
-    <!--libreria-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
 </head>
 <body>
     <header>
@@ -31,64 +26,25 @@
                 <li><a href="./contacto.html">Contacto</a></li>
             </ul>
         </nav>
-     </header>
+    </header>
     <main>
         <section>
             <article class="articulos">
-                <div class="ar">
-                    <img class="productos" src="./img/1miel.jpg" alt="">
-                    <h3> Velas de Miel medianas (x2)</h3>
-                    <p>$180</p>
-                    <div class="cont-button">
-                        <input type="button" value="Comprar">
-                    </div>
-                </div>
-
-                 <div class="ar">
-                     <img class="productos" src="./img/3chakras.jpg" alt="">
-                     <h3> Vela de Soja 7 Chakras</h3>
-                    <p>$630</p>
-                    <div class="cont-button">
-                        <input type="button" value="Comprar">
-                    </div>
-                 </div>
-                  <div class="ar">
-                     <img class="productos" src="./img/4reyve.jpg" alt="">
-                     <h3> Vela Circo XXL con Plato de resina </h3>
-                     <p>$1100</p>
-                     <div class="cont-button">
-                        <input type="button" value="Comprar">
-                    </div>
-                 </div>
-
-
-                <div class="ar">
-                    <img class="productos" src="./img/5par.jpg" alt="">
-                    <h3> Dos Velas de Soja, con tapa de bambú</h3>
-                      <p>$790</p>
-                      <div class="cont-button">
-                        <input type="button" value="Comprar">
-                    </div>
-                </div>
+                <!-- Contenido de los productos -->
             </article>
-
         </section>
 
-        
+        <!-- Botón para comprar -->
         <div class="cont-button">
-            <input type="button" value="Comprar" data-id="${producto.id}">
+            <input type="button" value="Comprar" data-id="1">
         </div>
 
+        <!-- Carrito de Compras -->
         <div class="carrito-container">
             <h2>Carrito de Compras</h2>
             <div id="carrito"></div>
             <div id="total-carrito">Total: $0</div>
         </div>
-
-        <button class="quitar-item" data-id="${item.id}">Quitar</button>
-
-
-
     </main>
     <footer class="footer">
         <div class="container">
