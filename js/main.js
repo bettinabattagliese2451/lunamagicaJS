@@ -24,30 +24,36 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para actualizar la visualización del carrito
     function actualizarCarrito() {
         const carritoContainer = document.getElementById('carrito');
-        carritoContainer.innerHTML = '';
+        if (carritoContainer) {
+            carritoContainer.innerHTML = '';
 
-        carrito.forEach(function (item, index) {
-            const div = document.createElement('div');
-            div.classList.add('carrito-item');
-            div.innerHTML = `
-                <span>${item.nombre} - $${item.precio}</span>
-                <button class="quitar-item" data-id="${item.id}">Quitar</button>
-            `;
-            carritoContainer.appendChild(div);
-        });
+            carrito.forEach(function (item, index) {
+                const div = document.createElement('div');
+                div.classList.add('carrito-item');
+                div.innerHTML = `
+                    <span>${item.nombre} - $${item.precio}</span>
+                    <button class="quitar-item" data-id="${item.id}">Quitar</button>
+                `;
+                carritoContainer.appendChild(div);
+            });
 
-        const totalCarrito = document.getElementById('total-carrito');
-        const total = carrito.reduce((sum, item) => sum + item.precio, 0);
-        totalCarrito.textContent = `Total: $${total}`;
+            const totalCarrito = document.getElementById('total-carrito');
+            if (totalCarrito) {
+                const total = carrito.reduce((sum, item) => sum + item.precio, 0);
+                totalCarrito.textContent = `Total: $${total}`;
+            }
 
-        localStorage.setItem('carrito', JSON.stringify(carrito));
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+        }
     }
 
     // Función para agregar un producto al carrito
     function agregarAlCarrito(id) {
         const producto = productos.find(item => item.id === id);
-        carrito.push(producto);
-        actualizarCarrito();
+        if (producto) {
+            carrito.push(producto);
+            actualizarCarrito();
+        }
     }
 
     // Función para quitar un producto del carrito
@@ -60,8 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }).then((result) => {
             if (result.isConfirmed) {
                 const index = carrito.findIndex(item => item.id === id);
-                carrito.splice(index, 1);
-                actualizarCarrito();
+                if (index !== -1) {
+                    carrito.splice(index, 1);
+                    actualizarCarrito();
+                }
             }
         });
     }
@@ -81,5 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
         actualizarCarrito();
     }
 });
+
 
 
